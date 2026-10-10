@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PENJELAJAH HEBAT: MISI KUASAI SURAH AL-KAFIRUN</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Fredoka & Nunito for vibrant comic text; Amiri & Noto Naskh Arabic for crystal clear Quran text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Nunito:wght@700;800;900;1000&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti for Victory Screen -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* Base typography tokens with ultra-high contrast & legibility */
+        body {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            background: #0f172a;
+            background-image: 
+                radial-gradient(at 10% 10%, #1e1b4b 0px, transparent 50%),
+                radial-gradient(at 90% 90%, #064e3b 0px, transparent 50%),
+                radial-gradient(at 50% 50%, #0284c7 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #0f172a;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        .font-arabic {
+            font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+            line-height: 2.3;
+            direction: rtl;
+        }
+
+        /* 3D Comic Gamified Buttons */
+        .btn-game-green {
+            background: linear-gradient(180deg, #34d399 0%, #059669 100%);
+            box-shadow: 0 8px 0 #047857, 0 12px 20px rgba(0,0,0,0.4);
+            border: 4px solid #064e3b;
+            transition: all 0.12s ease-in-out;
+        }
+        .btn-game-green:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #047857, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-game-yellow {
+            background: linear-gradient(180deg, #facc15 0%, #d97706 100%);
+            box-shadow: 0 8px 0 #92400e, 0 12px 20px rgba(0,0,0,0.4);
+            border: 4px solid #78350f;
+            transition: all 0.12s ease-in-out;
+        }
+        .btn-game-yellow:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #92400e, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-game-purple {
+            background: linear-gradient(180deg, #c084fc 0%, #7e22ce 100%);
+            box-shadow: 0 8px 0 #581c87, 0 12px 20px rgba(0,0,0,0.4);
+            border: 4px solid #3b0764;
+            transition: all 0.12s ease-in-out;
+        }
+        .btn-game-purple:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #581c87, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-game-blue {
+            background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+            box-shadow: 0 8px 0 #0369a1, 0 12px 20px rgba(0,0,0,0.4);
+            border: 4px solid #0c4a6e;
+            transition: all 0.12s ease-in-out;
+        }
+        .btn-game-blue:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #0369a1, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-game-orange {
+            background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+            box-shadow: 0 8px 0 #9a3412, 0 12px 20px rgba(0,0,0,0.4);
+            border: 4px solid #7c2d12;
+            transition: all 0.12s ease-in-out;
+        }
+        .btn-game-orange:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #9a3412, 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* 3D Comic Frame Styling */
+        .comic-card {
+            background-color: #ffffff;
+            border: 5px solid #0f172a;
+            box-shadow: 10px 10px 0px #0284c7, 0 16px 25px rgba(0,0,0,0.3);
+            border-radius: 28px;
+        }
+
+        .comic-card-gold {
+            background-color: #fefce8;
+            border: 5px solid #0f172a;
+            box-shadow: 10px 10px 0px #f59e0b, 0 16px 25px rgba(0,0,0,0.3);
+            border-radius: 28px;
+        }
+
+        .comic-bubble {
+            position: relative;
+            background: #ffffff;
+            border: 4px solid #0f172a;
+            border-radius: 24px;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.25);
+        }
+        .comic-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 36px;
+            border-width: 18px 18px 0;
+            border-style: solid;
+            border-color: #ffffff transparent;
+            display: block;
+            width: 0;
+        }
+        .comic-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -23px;
+            left: 33px;
+            border-width: 21px 21px 0;
+            border-style: solid;
+            border-color: #0f172a transparent;
+            display: block;
+            width: 0;
+        }
+
+        /* Floating & Glowing Animations */
+        @keyframes floatCharacter {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        .animate-float-char {
+            animation: floatCharacter 3.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlowGold {
+            0%, 100% { filter: drop-shadow(0 0 18px rgba(250, 204, 21, 0.9)); }
+            50% { filter: drop-shadow(0 0 32px rgba(250, 204, 21, 1)); }
+        }
+        .animate-glow-gold {
+            animation: pulseGlowGold 2s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 8px;
+            border: 3px solid #0f172a;
+        }
+
+        /* 3D Card Flip Animation for Minigame 5 */
+        .card-perspective {
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .card-flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+
+        /* RESPONSIVE ACCESSIBILITY OVERRIDES: phone, tablet and desktop */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { width: 100%; min-height: 100%; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+        body { width: 100%; min-width: 0; min-height: 100vh; min-height: 100dvh; overflow-x: clip; }
+        img, svg, video, canvas, iframe { max-width: 100%; }
+        button, input, select, textarea { font: inherit; }
+        button { touch-action: manipulation; overflow-wrap: anywhere; }
+        p, h1, h2, h3, h4, label, span { overflow-wrap: anywhere; }
+        main { min-width: 0; }
+        section, article, form, footer, header, main, .comic-card, .comic-card-gold { min-width: 0; }
+        input, select, textarea { max-width: 100%; }
+        :focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
+
+        @media (max-width: 640px) {
+            body { background-attachment: scroll; }
+            header { position: relative !important; padding-left: max(0.65rem, env(safe-area-inset-left)); padding-right: max(0.65rem, env(safe-area-inset-right)); }
+            header > div { flex-wrap: wrap; align-items: center; gap: .5rem; }
+            header h1, header .text-xl, header .text-2xl { font-size: clamp(1rem, 4.2vw, 1.3rem) !important; line-height: 1.2 !important; }
+            main { padding: .65rem !important; gap: 1rem !important; justify-content: flex-start !important; }
+            main > section { width: 100%; max-width: 100%; padding-top: .25rem !important; padding-bottom: .75rem !important; }
+            .comic-card, .comic-card-gold { padding: clamp(.8rem, 3.5vw, 1.25rem) !important; border-width: 3px !important; border-radius: 1.1rem !important; gap: 1rem !important; }
+            .comic-bubble { padding: .9rem !important; }
+            h1 { font-size: clamp(1.55rem, 7vw, 2.2rem) !important; line-height: 1.15 !important; }
+            h2 { font-size: clamp(1.35rem, 6vw, 2rem) !important; line-height: 1.2 !important; }
+            h3 { font-size: clamp(1.1rem, 4.7vw, 1.5rem) !important; line-height: 1.35 !important; }
+            p { line-height: 1.5; }
+            .font-arabic { font-size: clamp(1.8rem, 9vw, 2.7rem) !important; line-height: 2 !important; overflow-wrap: normal; }
+            button { min-height: 44px; max-width: 100%; padding: .75rem .85rem !important; font-size: clamp(.92rem, 3.8vw, 1.12rem) !important; line-height: 1.3 !important; white-space: normal !important; }
+            button i { margin-left: .15rem; margin-right: .15rem; }
+            input, select, textarea { min-height: 44px; width: 100%; font-size: 16px !important; }
+            .grid { min-width: 0; }
+            .grid > * { min-width: 0; }
+            .flex { min-width: 0; }
+            .text-8xl { font-size: clamp(4rem, 20vw, 6rem) !important; }
+            .text-9xl { font-size: clamp(4.5rem, 23vw, 6.5rem) !important; }
+            .text-5xl { font-size: clamp(1.8rem, 8vw, 2.7rem) !important; }
+            .text-4xl { font-size: clamp(1.5rem, 7vw, 2.2rem) !important; }
+            .text-3xl { font-size: clamp(1.25rem, 5.5vw, 1.8rem) !important; }
+            .text-2xl { font-size: clamp(1.05rem, 4.6vw, 1.45rem) !important; }
+            .text-xl { font-size: clamp(.98rem, 4vw, 1.2rem) !important; }
+            .p-8, .sm\:p-8 { padding: 1rem !important; }
+            .p-10, .sm\:p-10 { padding: 1.1rem !important; }
+            footer { padding: 1rem .75rem !important; font-size: .85rem !important; }
+            footer p { line-height: 1.45; }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            main { padding: 1rem !important; }
+            .comic-card, .comic-card-gold { padding: 1.5rem !important; }
+            button { min-height: 44px; }
+        }
+
+        @media (min-width: 1025px) {
+            main { padding: 1.5rem; }
+            button { cursor: pointer; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+
+    </style>
+</head>
+<body class="min-h-screen text-slate-900 flex flex-col justify-between selection:bg-amber-300">
+
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b-6 border-amber-400 px-4 py-3 shadow-2xl">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            
+            <!-- Left: Island Map Navigation Button -->
+            <button onclick="navTo('home')" class="flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-slate-900 px-4 py-2.5 rounded-2xl border-3 border-slate-900 font-extrabold text-xl md:text-2xl shadow-[0_5px_0_#b45309] active:translate-y-1 active:shadow-none transition-all">
+                <i class="fa-solid fa-map-location-dot text-2xl md:text-3xl text-emerald-900"></i>
+                <span class="hidden sm:inline tracking-wide">PETA ISLAND</span>
+            </button>
+
+            <!-- Center: Application Title Badge -->
+            <div class="text-center">
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-amber-300 tracking-wider drop-shadow-[0_4px_0_#0f172a]">
+                    PENJELAJAH HEBAT
+                </h1>
+                <p class="text-xs sm:text-base md:text-lg font-black text-sky-300 tracking-widest uppercase hidden sm:block">
+                    MISI KUASAI SURAH AL-KAFIRUN
+                </p>
+            </div>
+
+            <!-- Right: Stars & Sound FX Toggle -->
+            <div class="flex items-center gap-3">
+                <div class="bg-slate-950 px-3.5 py-1.5 rounded-2xl border-3 border-amber-400 flex items-center gap-2 shadow-inner">
+                    <i class="fa-solid fa-star text-amber-400 text-2xl md:text-3xl animate-bounce"></i>
+                    <span id="global-stars" class="text-amber-300 font-black text-2xl md:text-3xl">0</span>
+                </div>
+                
+                <button id="btn-sound" onclick="toggleAudioFX()" title="Tukar Bunyi" class="bg-sky-400 hover:bg-sky-300 text-slate-900 w-12 h-12 rounded-2xl border-3 border-slate-900 flex items-center justify-center font-black text-2xl shadow-[0_5px_0_#0369a1] active:translate-y-1 active:shadow-none transition-all">
+                    <i id="sound-icon" class="fa-solid fa-volume-high"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto p-4 md:p-6 flex flex-col justify-center items-center">
+
+        <!-- ================= PAGE 0: MAIN MENU & ISLAND MAP ================= -->
+        <section id="page-home" class="w-full flex flex-col items-center gap-8 py-2">
+            
+            <!-- Hero Mascot & Dialogue Box Panel -->
+            <div class="w-full bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-700 rounded-3xl p-6 sm:p-8 border-5 border-slate-900 shadow-[0_12px_0_#0f172a] text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-6">
+                
+                <!-- 3D Mascot Illustration (Cute Boy Explorer + Owl & Book) -->
+                <div class="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 flex-shrink-0 animate-float-char">
+                    <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-2xl">
+                        <!-- Island Sun Glow -->
+                        <circle cx="100" cy="100" r="92" fill="#fde047" stroke="#0f172a" stroke-width="6"/>
+                        
+                        <!-- Explorer Hat -->
+                        <path d="M 45 75 Q 100 30 155 75 Z" fill="#ea580c" stroke="#0f172a" stroke-width="5"/>
+                        <rect x="35" y="73" width="130" height="14" rx="7" fill="#c2410c" stroke="#0f172a" stroke-width="5"/>
+                        <circle cx="100" cy="45" r="12" fill="#f59e0b" stroke="#0f172a" stroke-width="4"/>
+                        
+                        <!-- Explorer Face -->
+                        <circle cx="100" cy="118" r="46" fill="#fef08a" stroke="#0f172a" stroke-width="5"/>
+                        
+                        <!-- Eyes with sparkles -->
+                        <circle cx="82" cy="112" r="8" fill="#0f172a"/>
+                        <circle cx="118" cy="112" r="8" fill="#0f172a"/>
+                        <circle cx="85" cy="109" r="3" fill="#ffffff"/>
+                        <circle cx="121" cy="109" r="3" fill="#ffffff"/>
+                        
+                        <!-- Rosy Cheeks -->
+                        <circle cx="72" cy="126" r="7" fill="#f43f5e" opacity="0.6"/>
+                        <circle cx="128" cy="126" r="7" fill="#f43f5e" opacity="0.6"/>
+                        
+                        <!-- Wide Smile -->
+                        <path d="M 85 130 Q 100 148 115 130" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+                        
+                        <!-- Cute Owl Companion Mascot -->
+                        <g transform="translate(138, 115) scale(0.65)">
+                            <circle cx="30" cy="30" r="28" fill="#a855f7" stroke="#0f172a" stroke-width="5"/>
+                            <circle cx="20" cy="22" r="9" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                            <circle cx="40" cy="22" r="9" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                            <circle cx="20" cy="22" r="4" fill="#0f172a"/>
+                            <circle cx="40" cy="22" r="4" fill="#0f172a"/>
+                            <polygon points="30,30 25,38 35,38" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- Speech Bubble & Student Welcome Bar -->
+                <div class="flex-grow text-center md:text-left space-y-4 w-full">
+                    <div class="comic-bubble p-5 sm:p-6 text-slate-900 inline-block text-left w-full">
+                        <p class="text-2xl sm:text-3xl font-black text-indigo-900 mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-comments text-amber-500"></i> Assalamualaikum, Penjelajah Hebat!
+                        </p>
+                        <p id="home-welcome-text" class="text-xl sm:text-2xl font-bold leading-snug text-slate-800">
+                            "Selamat datang ke Pulau Pengembaraan Surah Al-Kafirun! Mari kumpul Bintang, lencana dan trofi pahlawan bersama-sama!"
+                        </p>
+                    </div>
+
+                    <!-- Student Info Snapshot Badge -->
+                    <div id="home-student-badge" class="bg-slate-950/80 backdrop-blur-md p-3.5 rounded-2xl border-3 border-amber-400 flex flex-wrap items-center justify-between gap-3 text-amber-300">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-user-astronaut text-emerald-400 text-3xl"></i>
+                            <div>
+                                <span class="text-xs font-black text-slate-400 uppercase tracking-widest block">PROFIL PENJELAJAH</span>
+                                <span id="display-student-name" class="font-black text-2xl text-white">Penjelajah Barangan</span>
+                            </div>
+                        </div>
+                        <button onclick="navTo('academy')" class="text-lg bg-sky-400 hover:bg-sky-300 text-slate-900 px-4 py-2 rounded-xl font-black border-2 border-slate-900 shadow-[0_3px_0_#0369a1] active:translate-y-0.5">
+                            <i class="fa-solid fa-pen-to-square mr-1"></i> KEMAS KINI PROFIL
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full text-center my-1">
+                <span class="bg-amber-400 text-slate-900 px-6 py-2 rounded-full font-black text-xl sm:text-2xl border-3 border-slate-900 shadow-[0_4px_0_#b45309]">
+                    <i class="fa-solid fa-compass mr-2"></i> PETA MISI PENGEMBARAAN
+                </span>
+            </div>
+
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Stage 1 Button -->
+                <button onclick="navTo('academy')" class="btn-game-orange p-6 rounded-3xl flex items-center gap-5 text-left group">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 bg-amber-200 border-4 border-slate-900 rounded-2xl flex items-center justify-center text-4xl sm:text-5xl shadow-inner group-hover:scale-110 transition-transform">
+                        🚀
+                    </div>
+                    <div>
+                        <span class="block text-amber-200 font-extrabold text-base tracking-widest uppercase">LOKASI 1</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white drop-shadow-[0_3px_0_#7c2d12]">
+                            AKADEMI ILMU
+                        </h2>
+                        <p class="text-amber-100 font-bold text-lg sm:text-xl mt-1">Daftar maklumat & baca arahan misi.</p>
+                    </div>
+                </button>
+
+                <!-- Stage 2 Button -->
+                <button onclick="navTo('learn')" class="btn-game-green p-6 rounded-3xl flex items-center gap-5 text-left group">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 bg-emerald-200 border-4 border-slate-900 rounded-2xl flex items-center justify-center text-4xl sm:text-5xl shadow-inner group-hover:scale-110 transition-transform">
+                        📖
+                    </div>
+                    <div>
+                        <span class="block text-emerald-200 font-extrabold text-base tracking-widest uppercase">LOKASI 2</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white drop-shadow-[0_3px_0_#064e3b]">
+                            LEMBAH 6 AYAT
+                        </h2>
+                        <p class="text-emerald-100 font-bold text-lg sm:text-xl mt-1">Belajar hafalan, audio & maksud ayat.</p>
+                    </div>
+                </button>
+
+                <!-- Stage 3 Button -->
+                <button onclick="navTo('activities')" class="btn-game-purple p-6 rounded-3xl flex items-center gap-5 text-left group">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 bg-purple-200 border-4 border-slate-900 rounded-2xl flex items-center justify-center text-4xl sm:text-5xl shadow-inner group-hover:scale-110 transition-transform">
+                        🎮
+                    </div>
+                    <div>
+                        <span class="block text-purple-200 font-extrabold text-base tracking-widest uppercase">LOKASI 3</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white drop-shadow-[0_3px_0_#3b0764]">
+                            DUNIA AKTIVITI
+                        </h2>
+                        <p class="text-purple-100 font-bold text-lg sm:text-xl mt-1">6 Permainan mini interaktif seronok!</p>
+                    </div>
+                </button>
+
+                <!-- Stage 4 Button -->
+                <button onclick="navTo('quiz')" class="btn-game-yellow p-6 rounded-3xl flex items-center gap-5 text-left group">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 bg-amber-100 border-4 border-slate-900 rounded-2xl flex items-center justify-center text-4xl sm:text-5xl shadow-inner group-hover:scale-110 transition-transform animate-bounce">
+                        🏆
+                    </div>
+                    <div>
+                        <span class="block text-amber-950 font-extrabold text-base tracking-widest uppercase">LOKASI 4</span>
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 drop-shadow-[0_2px_0_#fef08a]">
+                            ISTANA MISI AKHIR
+                        </h2>
+                        <p class="text-amber-950 font-black text-lg sm:text-xl mt-1">Kuiz 20 soalan untuk piala pahlawan!</p>
+                    </div>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 1: AKADEMI PENJELAJAH ================= -->
+        <section id="page-academy" class="w-full hidden flex-col items-center gap-6 py-4 max-w-3xl">
+            
+            <div class="comic-card-gold p-6 sm:p-8 w-full text-slate-900">
+                <!-- Title Header -->
+                <div class="text-center mb-6">
+                    <span class="bg-amber-400 text-slate-900 px-5 py-2 rounded-full font-black text-xl border-3 border-slate-900 shadow">
+                        PERINGKAT 1
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mt-3 drop-shadow">
+                        AKADEMI PENJELAJAH ILMU
+                    </h2>
+                    <p class="text-xl sm:text-2xl font-black text-amber-900 mt-2">
+                        Daftar maklumat anda sebelum memulakan pengembaraan!
+                    </p>
+                </div>
+
+                <!-- Comic Mascot Speech Panel -->
+                <div class="bg-amber-200/90 border-4 border-amber-600 rounded-2xl p-5 mb-6 flex items-center gap-4 shadow">
+                    <div class="text-5xl sm:text-6xl">🦉</div>
+                    <p class="text-xl sm:text-2xl font-black text-amber-950">
+                        "Burung Hantu Bijak di sini! Masukkan nama dan e-mel ibu bapa supaya sijil kejayaan anda boleh direkodkan!"
+                    </p>
+                </div>
+
+                <!-- Registration Form -->
+                <form id="form-profile" onsubmit="saveProfile(event)" class="space-y-6">
+                    <div>
+                        <label class="block text-2xl sm:text-3xl font-black text-slate-900 mb-2">
+                            <i class="fa-solid fa-user-astronaut text-sky-600 mr-2"></i>Nama Penjelajah Cilik:
+                        </label>
+                        <input type="text" id="input-name" required placeholder="Contoh: Ahmad Ziyad" class="w-full bg-white border-4 border-slate-900 rounded-2xl p-4 text-2xl sm:text-3xl font-black focus:outline-none focus:ring-4 focus:ring-amber-400 shadow-inner">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xl sm:text-2xl font-black text-slate-900 mb-2">
+                                <i class="fa-solid fa-school text-emerald-600 mr-2"></i>Kelas / Umur:
+                            </label>
+                            <input type="text" id="input-class" required placeholder="Contoh: 1 Ibnu Sina (7 Tahun)" class="w-full bg-white border-4 border-slate-900 rounded-2xl p-4 text-xl sm:text-2xl font-black focus:outline-none focus:ring-4 focus:ring-amber-400 shadow-inner">
+                        </div>
+
+                        <div>
+                            <label class="block text-xl sm:text-2xl font-black text-slate-900 mb-2">
+                                <i class="fa-solid fa-envelope text-purple-600 mr-2"></i>E-mel Ibu Bapa / Penjaga:
+                            </label>
+                            <input type="email" id="input-email" required placeholder="ibu.bapa@gmail.com" class="w-full bg-white border-4 border-slate-900 rounded-2xl p-4 text-xl sm:text-2xl font-black focus:outline-none focus:ring-4 focus:ring-amber-400 shadow-inner">
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="btn-game-green w-full py-5 rounded-2xl text-2xl sm:text-3xl font-black text-white flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-rocket text-amber-300"></i> JOM MULA PENGEMBARAAN!
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 2: BELAJAR 6 AYAT ================= -->
+        <section id="page-learn" class="w-full hidden flex-col items-center gap-6 py-2 max-w-4xl">
+            
+            <!-- Stage Progress Header Bar -->
+            <div class="w-full flex flex-wrap items-center justify-between bg-slate-900/90 p-4 rounded-3xl border-3 border-emerald-400 text-white gap-3 shadow-xl">
+                <div>
+                    <span class="text-amber-400 font-extrabold text-base uppercase tracking-widest">PERINGKAT 2</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-emerald-300">LEMBAH 6 AYAT SURAH AL-KAFIRUN</h2>
+                </div>
+                <div id="verse-badge-counter" class="bg-emerald-600 px-5 py-2.5 rounded-2xl border-3 border-slate-900 text-2xl font-black shadow">
+                    AYAT 1 / 6
+                </div>
+            </div>
+
+            <!-- Verse Explorer Card -->
+            <div class="comic-card p-6 sm:p-8 w-full bg-emerald-50 text-slate-900 flex flex-col items-center gap-6 relative">
+                
+                <!-- Verse Number Banner -->
+                <div class="bg-amber-400 border-4 border-slate-900 px-8 py-2.5 rounded-2xl text-3xl sm:text-4xl font-black text-slate-900 shadow-[0_5px_0_#0f172a]">
+                    AYAT <span id="current-verse-num">1</span>
+                </div>
+
+                <!-- Arabic Verse Box -->
+                <div class="w-full bg-amber-100/90 border-5 border-slate-900 rounded-3xl p-6 sm:p-10 text-center shadow-inner">
+                    <p id="verse-arabic" class="font-arabic text-4xl sm:text-6xl md:text-7xl text-slate-900 font-bold leading-loose">
+                        قُلْ يَا أَيُّهَا الْكَافِرُونَ
+                    </p>
+                </div>
+
+                <!-- Audio Playback Controls -->
+                <div class="flex flex-wrap items-center justify-center gap-4 my-2">
+                    <button onclick="playCurrentVerseAudio()" class="btn-game-yellow px-8 py-5 rounded-2xl text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-3">
+                        <i class="fa-solid fa-volume-high text-slate-900"></i> DENGAR BACAAN
+                    </button>
+                    
+                    <button onclick="repeatCurrentVerseAudio()" class="btn-game-blue px-8 py-5 rounded-2xl text-2xl sm:text-3xl font-black text-white flex items-center gap-3">
+                        <i class="fa-solid fa-rotate-right"></i> ULANG DENGAR
+                    </button>
+                </div>
+
+                <!-- Transliteration & BM Meaning Box -->
+                <div class="w-full bg-white border-4 border-slate-900 rounded-2xl p-6 space-y-4 shadow">
+                    <div class="border-b-3 border-slate-200 pb-3">
+                        <span class="text-sm font-black text-emerald-800 tracking-widest uppercase block mb-1">SEBUTAN (RUMI):</span>
+                        <p id="verse-rumi" class="text-2xl sm:text-3xl font-black text-slate-800">
+                            Qul ya ayyuhal-kafirun
+                        </p>
+                    </div>
+                    <div>
+                        <span class="text-sm font-black text-emerald-800 tracking-widest uppercase block mb-1">MAKSUD (BAHASA MELAYU):</span>
+                        <p id="verse-meaning" class="text-2xl sm:text-3xl font-black text-emerald-950">
+                            Katakanlah (wahai Muhammad): "Wahai orang-orang kafir!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Progress Marker -->
+                <div id="verse-complete-status" class="bg-emerald-200 border-3 border-emerald-700 rounded-2xl px-5 py-2.5 font-black text-emerald-950 text-xl sm:text-2xl flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-3xl text-emerald-600"></i> Status: Dipelajari!
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="w-full flex justify-between items-center gap-4 pt-4 border-t-5 border-slate-900">
+                    <button id="btn-prev-verse" onclick="prevVerse()" class="btn-game-orange px-6 sm:px-8 py-4 sm:py-5 rounded-2xl text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> SEBELUMNYA
+                    </button>
+                    
+                    <button id="btn-next-verse" onclick="nextVerse()" class="btn-game-green px-6 sm:px-8 py-4 sm:py-5 rounded-2xl text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                        SETERUSNYA <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3: DUNIA AKTIVITI ================= -->
+        <section id="page-activities" class="w-full hidden flex-col items-center gap-6 py-2">
+            
+            <!-- Activity Map Header -->
+            <div class="w-full text-center bg-slate-900/90 p-5 rounded-3xl border-3 border-purple-400 text-white shadow-xl">
+                <span class="bg-purple-500 text-white px-5 py-1.5 rounded-full font-black text-lg uppercase tracking-wider">PERINGKAT 3</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-purple-300 mt-2">DUNIA AKTIVITI INTERAKTIF</h2>
+                <p class="text-xl sm:text-2xl font-bold text-slate-200 mt-1">Pilih salah satu daripada 6 permainan mini di bawah!</p>
+            </div>
+
+            <!-- Minigame Selector Grid -->
+            <div id="activity-selector-grid" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Minigame 1 Card -->
+                <div class="comic-card p-6 bg-sky-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🎧</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">1. DENGAR & KENALI</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Dengar bacaan audio dan pilih ayat Arab yang betul.</p>
+                    </div>
+                    <button onclick="startActivity(1)" class="btn-game-blue w-full py-4 rounded-2xl text-2xl font-black text-white">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+                <!-- Minigame 2 Card -->
+                <div class="comic-card p-6 bg-emerald-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🧩</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">2. SUSUN AYAT</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Susun urutan 6 ayat Surah Al-Kafirun dengan tepat.</p>
+                    </div>
+                    <button onclick="startActivity(2)" class="btn-game-green w-full py-4 rounded-2xl text-2xl font-black text-white">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+                <!-- Minigame 3 Card -->
+                <div class="comic-card p-6 bg-purple-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🔎</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">3. CARI PADANAN 2 TIANG</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Padankan kad ayat Arab dengan maksud BM secara interaktif!</p>
+                    </div>
+                    <button onclick="startActivity(3)" class="btn-game-purple w-full py-4 rounded-2xl text-2xl font-black text-white">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+                <!-- Minigame 4 Card -->
+                <div class="comic-card p-6 bg-amber-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🎈</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">4. ISI TEMPAT KOSONG</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Pilih belon perkataan Arab yang betul untuk melengkapkan ayat.</p>
+                    </div>
+                    <button onclick="startActivity(4)" class="btn-game-yellow w-full py-4 rounded-2xl text-2xl font-black text-slate-900">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+                <!-- Minigame 5 Card -->
+                <div class="comic-card p-6 bg-rose-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🎴</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">5. KAD INGATAN 3D</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Balikkan 8 kad bergambar dan cari 4 pasangan ayat yang tepat!</p>
+                    </div>
+                    <button onclick="startActivity(5)" class="btn-game-orange w-full py-4 rounded-2xl text-2xl font-black text-white">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+                <!-- Minigame 6 Card -->
+                <div class="comic-card p-6 bg-teal-100 flex flex-col justify-between items-center text-center gap-4">
+                    <div class="text-6xl my-1">🕵️</div>
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900">6. DETEKTIF TAJWID</h3>
+                        <p class="text-lg sm:text-xl font-bold text-slate-700 mt-2">Jadilah detektif! Cari kesilapan ejaan ayat dan pilih Betul/Salah.</p>
+                    </div>
+                    <button onclick="startActivity(6)" class="btn-game-green w-full py-4 rounded-2xl text-2xl font-black text-white">
+                        MULA MAIN!
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Minigame Playground Container (Dynamically Populated via JS) -->
+            <div id="minigame-container" class="w-full hidden comic-card p-6 sm:p-8 bg-white flex-col items-center gap-6">
+                <div class="w-full flex items-center justify-between border-b-5 border-slate-900 pb-4">
+                    <button onclick="closeMinigame()" class="bg-rose-500 hover:bg-rose-400 text-white font-black px-5 py-2.5 rounded-2xl border-3 border-slate-900 text-xl shadow">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> MENU AKTIVITI
+                    </button>
+                    <span id="minigame-title" class="text-2xl sm:text-3xl font-black text-purple-900">
+                        NAMA PERMAINAN
+                    </span>
+                </div>
+
+                <div id="minigame-play-area" class="w-full flex flex-col items-center justify-center gap-6 min-h-[350px]">
+                    <!-- Dynamic Minigame Content -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= PAGE 4: KUIZ 20 SOALAN ================= -->
+        <section id="page-quiz" class="w-full hidden flex-col items-center gap-6 py-2 max-w-3xl">
+            
+            <!-- Quiz Header Banner -->
+            <div class="w-full bg-slate-900/90 p-5 rounded-3xl border-3 border-amber-400 text-white flex justify-between items-center shadow-xl gap-2">
+                <div>
+                    <span class="bg-amber-400 text-slate-900 px-4 py-1 rounded-full font-black text-sm uppercase">PERINGKAT 4</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-amber-300">MISI AKHIR: KUIZ 20 SOALAN</h2>
+                </div>
+                <div class="bg-amber-500 text-slate-900 px-5 py-2.5 rounded-2xl font-black text-2xl sm:text-3xl border-3 border-slate-900 shadow">
+                    <span id="quiz-question-counter">SOALAN 1 / 20</span>
+                </div>
+            </div>
+
+            <!-- Quiz Card Frame -->
+            <div class="comic-card-gold p-6 sm:p-8 w-full text-slate-900 flex flex-col items-center gap-6 relative">
+                
+                <!-- Mascot Helper -->
+                <div class="w-full flex items-center gap-4 bg-amber-200/90 p-4 rounded-2xl border-3 border-amber-600">
+                    <div class="text-4xl sm:text-5xl">⭐</div>
+                    <p id="quiz-instruction-text" class="text-xl sm:text-2xl font-black text-amber-950">
+                        Pilih satu jawapan yang paling tepat di bawah:
+                    </p>
+                </div>
+
+                <!-- Question Prompt Box -->
+                <div class="w-full bg-white border-5 border-slate-900 rounded-3xl p-6 sm:p-8 text-center shadow-inner">
+                    <h3 id="quiz-question-text" class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 leading-snug">
+                        Apakah maksud bagi ayat "قُلْ يَا أَيُّهَا الْكَافِرُونَ"?
+                    </h3>
+                </div>
+
+                <!-- 4 Large Answer Option Buttons -->
+                <div id="quiz-options-container" class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Dynamic option buttons generated via JavaScript -->
+                </div>
+
+                <!-- Quiz Feedback Message Box -->
+                <div id="quiz-feedback-box" class="w-full hidden p-5 rounded-2xl border-4 border-slate-900 text-center text-2xl sm:text-3xl font-black transition-all">
+                    <!-- Dynamic Feedback Message -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= PAGE 5: SKRIN GANJARAN ================= -->
+        <section id="page-rewards" class="w-full hidden flex-col items-center gap-6 py-2 max-w-3xl">
+            
+            <div class="comic-card p-6 sm:p-10 w-full bg-gradient-to-b from-amber-100 via-amber-50 to-emerald-100 text-slate-900 flex flex-col items-center text-center gap-6">
+                
+                <!-- Trophy Victory Display -->
+                <div class="relative">
+                    <div class="text-8xl sm:text-9xl animate-bounce">🏆</div>
+                    <div class="absolute -top-4 -right-6 bg-emerald-500 text-white font-black px-5 py-2 rounded-full border-3 border-slate-900 text-xl shadow">
+                        TAHNIAH!
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900 drop-shadow">
+                        PENGEMBARAAN SELESAI!
+                    </h2>
+                    <p id="reward-student-greeting" class="text-2xl sm:text-3xl font-black text-amber-900 mt-2">
+                        Hebat sekali, Penjelajah Ahmad! Anda telah berjaya menguasai Surah Al-Kafirun!
+                    </p>
+                </div>
+
+                <!-- Stars Rating Row -->
+                <div id="reward-stars-row" class="flex gap-4 text-6xl sm:text-7xl text-amber-400 drop-shadow-[0_5px_0_#0f172a]">
+                    <i class="fa-solid fa-star animate-glow-gold"></i>
+                    <i class="fa-solid fa-star animate-glow-gold"></i>
+                    <i class="fa-solid fa-star animate-glow-gold"></i>
+                </div>
+
+                <!-- Score Board Details -->
+                <div class="w-full bg-white border-5 border-slate-900 rounded-3xl p-6 grid grid-cols-3 gap-2 shadow-inner">
+                    <div class="border-r-3 border-slate-200">
+                        <span class="text-xs sm:text-sm font-black text-slate-500 uppercase">SKOR PERATUS</span>
+                        <p id="reward-score-percent" class="text-3xl sm:text-5xl font-black text-emerald-600">100%</p>
+                    </div>
+                    <div class="border-r-3 border-slate-200">
+                        <span class="text-xs sm:text-sm font-black text-slate-500 uppercase">BETUL</span>
+                        <p id="reward-correct-count" class="text-3xl sm:text-5xl font-black text-blue-600">20/20</p>
+                    </div>
+                    <div>
+                        <span class="text-xs sm:text-sm font-black text-slate-500 uppercase">LENCANA</span>
+                        <p id="reward-badge-name" class="text-2xl sm:text-3xl font-black text-purple-600">PAHLAWAN</p>
+                    </div>
+                </div>
+
+                <!-- Parent Email Dispatch Status Box -->
+                <div id="email-status-box" class="w-full bg-sky-100 border-4 border-sky-400 rounded-2xl p-5 text-left flex items-center gap-4">
+                    <i class="fa-solid fa-paper-plane text-4xl text-sky-600"></i>
+                    <div>
+                        <p class="font-black text-xl text-sky-950">Status Laporan Ibu Bapa:</p>
+                        <p id="email-status-text" class="text-lg font-bold text-sky-900">
+                            Mengirimkan markah rasmi ke e-mel ibu bapa...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-5 border-slate-900">
+                    <button onclick="navTo('learn')" class="btn-game-blue py-5 rounded-2xl text-2xl font-black text-white">
+                        <i class="fa-solid fa-book-open mr-2"></i> ULANG KAJI
+                    </button>
+                    <button onclick="navTo('quiz')" class="btn-game-yellow py-5 rounded-2xl text-2xl font-black text-slate-900">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> CUBA LAGI
+                    </button>
+                    <button onclick="navTo('home')" class="btn-game-green py-5 rounded-2xl text-2xl font-black text-white">
+                        <i class="fa-solid fa-map mr-2"></i> PETA MISI
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t-6 border-slate-800 py-5 text-center text-slate-400 font-extrabold text-base sm:text-lg">
+        <p>PENJELAJAH HEBAT: MISI KUASAI SURAH AL-KAFIRUN &copy; 2026</p>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1 font-bold">Aplikasi Pembelajaran Interaktif Al-Quran untuk Kanak-Kanak (3-9 Tahun)</p>
+    </footer>
+
+    <script>
+        /* ==========================================================================
+           GLOBAL APPLICATION DATA STRUCTURES & SURAH CONTENT
+           ========================================================================== */
+
+        // 6 Verses of Surah Al-Kafirun with authentic Arabic, Transliteration, BM Translation & Audio URL
+        const SURAH_DATA = [
+            {
+                number: 1,
+                arabic: "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+                rumi: "Qul ya ayyuhal-kafirun",
+                meaning: "Katakanlah (wahai Muhammad): \"Wahai orang-orang kafir!\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109001.mp3"
+            },
+            {
+                number: 2,
+                arabic: "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+                rumi: "La a'budu ma ta'budun",
+                meaning: "\"Aku tidak akan menyembah apa yang kamu sembah.\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109002.mp3"
+            },
+            {
+                number: 3,
+                arabic: "وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                rumi: "Wa la antum 'abiduna ma a'bud",
+                meaning: "\"Dan kamu bukan penyembah apa yang aku sembah.\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109003.mp3"
+            },
+            {
+                number: 4,
+                arabic: "وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ",
+                rumi: "Wa la ana 'abidum ma 'abadtum",
+                meaning: "\"Dan aku tidak pernah menjadi penyembah apa yang kamu sembah.\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109004.mp3"
+            },
+            {
+                number: 5,
+                arabic: "وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                rumi: "Wa la antum 'abiduna ma a'bud",
+                meaning: "\"Dan kamu tidak pernah pula menjadi penyembah apa yang aku sembah.\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109005.mp3"
+            },
+            {
+                number: 6,
+                arabic: "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+                rumi: "Lakum dinukum wa liya din",
+                meaning: "\"Bagi kamu agama kamu, dan bagiku agamaku.\"",
+                audio: "https://everyayah.com/data/Alafasy_128kbps/109006.mp3"
+            }
+        ];
+
+        // 20 Curated Distinct Questions for Stage 4 Quiz
+        const QUIZ_QUESTIONS = [
+            {
+                q: "Surah Al-Kafirun mengandungi berapa ayat?",
+                options: ["4 Ayat", "5 Ayat", "6 Ayat", "7 Ayat"],
+                correct: 2,
+                hint: "Surah ini mempunyai 6 ayat kesemuanya."
+            },
+            {
+                q: "Apakah maksud bagi tajuk 'Al-Kafirun'?",
+                options: ["Orang-orang Beriman", "Orang-orang Kafir", "Orang-orang Munafik", "Orang-orang Solih"],
+                correct: 1,
+                hint: "Al-Kafirun bermaksud Orang-orang Kafir."
+            },
+            {
+                q: "Apakah maksud bagi ayat pertama 'قُلْ يَا أَيُّهَا الْكَافِرُونَ'?",
+                options: [
+                    "Katakanlah: Wahai orang-orang kafir!",
+                    "Aku tidak menyembah apa yang kamu sembah",
+                    "Bagi kamu agama kamu",
+                    "Dan kamu bukan penyembah Tuhan"
+                ],
+                correct: 0,
+                hint: "Ayat 1 menyeru orang-orang kafir."
+            },
+            {
+                q: "Apakah maksud potongan ayat 'لَا أَعْبُدُ مَا تَعْبُدُونَ' (Ayat 2)?",
+                options: [
+                    "Aku tidak akan menyembah apa yang kamu sembah",
+                    "Bagi kamu agama kamu dan bagiku agamaku",
+                    "Katakanlah wahai orang beriman",
+                    "Dan aku tidak pernah menyembah"
+                ],
+                correct: 0,
+                hint: "Ayat 2 menegaskan penolakan penyembahan berhala."
+            },
+            {
+                q: "Surah Al-Kafirun diturunkan di kota mana?",
+                options: ["Madinah", "Makkah", "Taif", "Yemen"],
+                correct: 1,
+                hint: "Surah Al-Kafirun ialah surah Makkiyah."
+            },
+            {
+                q: "Apakah maksud 'لَكُمْ دِينُكُمْ وَلِيَ دِينِ' (Ayat 6)?",
+                options: [
+                    "Bagi kamu agama kamu, dan bagiku agamaku",
+                    "Sembahlah Allah bersama-sama",
+                    "Janganlah kamu kafir",
+                    "Katakanlah wahai orang kafir"
+                ],
+                correct: 0,
+                hint: "Ayat ke-6 menegaskan toleransi agama tanpa campur aduk akidah."
+            },
+            {
+                q: "Berapakah bilangan perkataan 'عَابِدُونَ' dalam Surah Al-Kafirun?",
+                options: ["1 kali", "2 kali", "3 kali", "4 kali"],
+                correct: 1,
+                hint: "Perkataan عَابِدُونَ muncul pada ayat ke-3 dan ayat ke-5."
+            },
+            {
+                q: "Surah Al-Kafirun mengajar kita tentang prinsip penting iaitu...",
+                options: [
+                    "Ketegasan akidah tauhid tanpa kompromi syirik",
+                    "Memaksa orang lain masuk Islam",
+                    "Menyembah berhala berselang-seli",
+                    "Membiarkan semua amalan disatukan"
+                ],
+                correct: 0,
+                hint: "Prinsip ketegasan akidah tauhid."
+            },
+            {
+                q: "Pilih susunan ayat yang betul selepas ayat 1 'قُلْ يَا أَيُّهَا الْكَافِرُونَ':",
+                options: [
+                    "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+                    "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+                    "وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ",
+                    "وَلَا أَنْتُمْ عَابِدُونَ"
+                ],
+                correct: 0,
+                hint: "Ayat ke-2 ialah La a'budu ma ta'budun."
+            },
+            {
+                q: "Apakah nombor ayat bagi 'وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ'?",
+                options: ["Ayat 2", "Ayat 3", "Ayat 4", "Ayat 5"],
+                correct: 2,
+                hint: "Ini merupakan ayat ke-4 Surah Al-Kafirun."
+            },
+            {
+                q: "Ayat manakah yang diulang lafaznya dalam Surah Al-Kafirun?",
+                options: [
+                    "وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                    "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+                    "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+                    "لَكُمْ دِينُكُمْ وَلِيَ دِينِ"
+                ],
+                correct: 0,
+                hint: "Ayat 3 dan Ayat 5 mempunyai lafaz yang sama persis."
+            },
+            {
+                q: "Apakah tindakan Nabi Muhammad SAW apabila orang kafir mengajak menyembah berhala secara bergilir?",
+                options: [
+                    "Menolak secara tegas mengikut wahyu Surah Al-Kafirun",
+                    "Bersetuju secara rahsia",
+                    "Meminta tempoh seminggu",
+                    "Menerima syarat orang Quraisy"
+                ],
+                correct: 0,
+                hint: "Nabi SAW menolak sebarang kompromi dalam hal ibadah."
+            },
+            {
+                q: "Apakah perkataan Arab bagi 'Agama Kamu' dalam ayat ke-6?",
+                options: ["دِينُكُمْ (Dinukum)", "دِينِ (Dini)", "عَابِدُونَ ('Abidun)", "تَعْبُدُونَ (Ta'budun)"],
+                correct: 0,
+                hint: "Dinukum bermaksud Agama Kamu."
+            },
+            {
+                q: "Lengkapkan ayat ini: 'وَلَا أَنْتُمْ عَابِدُونَ مَا ...'",
+                options: ["أَعْبُدُ (A'bud)", "تَعْبُدُونَ (Ta'budun)", "عَبَدْتُمْ ('Abadtum)", "دِينِ (Dini)"],
+                correct: 0,
+                hint: "Lafaz lengkapnya ialah 'ma a'bud'."
+            },
+            {
+                q: "Dalam susunan Al-Quran, Surah Al-Kafirun merupakan surah yang ke berapa?",
+                options: ["Surah ke-108", "Surah ke-109", "Surah ke-110", "Surah ke-112"],
+                correct: 1,
+                hint: "Surah Al-Kafirun ialah surah ke-109 dalam Al-Quran."
+            },
+            {
+                q: "Apakah hukum membaca Al-Quran dengan tajwid yang betul?",
+                options: ["Wajib", "Sunat", "Harus", "Makruh"],
+                correct: 0,
+                hint: "Membaca Al-Quran dengan tajwid adalah wajib."
+            },
+            {
+                q: "Manakah antara berikut BUKAN ayat daripada Surah Al-Kafirun?",
+                options: [
+                    "قُلْ هُوَ اللَّهُ أَحَدٌ",
+                    "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+                    "لَا أَعْبُدُ مَا تَعْبُدُونَ",
+                    "لَكُمْ دِينُكُمْ وَلِيَ دِينِ"
+                ],
+                correct: 0,
+                hint: "Qul huwallahu ahad ialah daripada Surah Al-Ikhlas."
+            },
+            {
+                q: "Perkataan 'أَعْبُدُ' (A'budu) bermaksud...",
+                options: ["Aku menyembah", "Kamu menyembah", "Mereka menyembah", "Kami menyembah"],
+                correct: 0,
+                hint: "A'budu bermaksud Aku menyembah."
+            },
+            {
+                q: "Mengapakah kita disunatkan membaca Surah Al-Kafirun semasa solat sunat Subuh?",
+                options: [
+                    "Kerana mengandungi ikrar pemurnian tauhid kepada Allah SWT",
+                    "Kerana surah ini paling panjang",
+                    "Kerana terdapat kisah para nabi",
+                    "Kerana surah ini diturunkan di Madinah"
+                ],
+                correct: 0,
+                hint: "Surah ini memurnikan tauhid dan bebas daripada syirik."
+            },
+            {
+                q: "Apakah iktibar utama daripada pengembaraan Surah Al-Kafirun?",
+                options: [
+                    "Menjaga kesucian akidah diri dan saling menghormati",
+                    "Membenci semua orang",
+                    "Tidak mahu berkawan dengan jiran",
+                    "Meninggalkan solat"
+                ],
+                correct: 0,
+                hint: "Menjaga akidah diri dan kekal berakhlak mulia."
+            }
+        ];
+
+        /* ==========================================================================
+           APPLICATION STATE & LOCAL STORAGE MANAGERS
+           ========================================================================== */
+        let state = {
+            studentName: "Penjelajah Comel",
+            studentClass: "1 Ibnu Sina",
+            parentEmail: "ibubapa@gmail.com",
+            stars: 0,
+            currentVerseIndex: 0, // 0 to 5
+            learnedVerses: [false, false, false, false, false, false],
+            quizCurrentIndex: 0,
+            quizScore: 0,
+            soundEnabled: true
+        };
+
+        // Initialize App on DOM Loaded
+        window.onload = function() {
+            loadSavedState();
+            updateHeaderStars();
+            updateVerseDisplay();
+
+            // Unlock AudioContext on initial click or tap
+            const unlockAudio = () => {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if ('speechSynthesis' in window) {
+                    window.speechSynthesis.resume();
+                }
+                document.removeEventListener('click', unlockAudio);
+                document.removeEventListener('touchstart', unlockAudio);
+            };
+            document.addEventListener('click', unlockAudio);
+            document.addEventListener('touchstart', unlockAudio);
+        };
+
+        function saveStateToLocal() {
+            try {
+                localStorage.setItem('penjelajah_kafirun_state', JSON.stringify(state));
+            } catch(e) {
+                console.log("Localstorage error: ", e);
+            }
+        }
+
+        function loadSavedState() {
+            try {
+                const saved = localStorage.getItem('penjelajah_kafirun_state');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    state = { ...state, ...parsed };
+                }
+            } catch(e) {
+                console.log("Storage load fallback");
+            }
+            
+            // Populate profile fields
+            document.getElementById('input-name').value = state.studentName || "";
+            document.getElementById('input-class').value = state.studentClass || "";
+            document.getElementById('input-email').value = state.parentEmail || "";
+            document.getElementById('display-student-name').innerText = state.studentName || "Penjelajah Barangan";
+        }
+
+        /* ==========================================================================
+           AUDIO & SOUND EFFECTS ENGINE (Web Audio API Synthesizer)
+           ========================================================================== */
+        let audioCtx = null;
+
+        function playSound(type) {
+            if (!state.soundEnabled) return;
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.frequency.setValueAtTime(450, now);
+                    osc.frequency.exponentialRampToValueAtTime(850, now + 0.08);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'correct') {
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else if (type === 'wrong') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, now); // A3
+                    osc.frequency.setValueAtTime(164.81, now + 0.15); // E3
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'fanfare') {
+                    const notes = [523.25, 659.25, 783.99, 1046.50];
+                    notes.forEach((freq, idx) => {
+                        const noteOsc = audioCtx.createOscillator();
+                        const noteGain = audioCtx.createGain();
+                        noteOsc.connect(noteGain);
+                        noteGain.connect(audioCtx.destination);
+                        
+                        const start = now + (idx * 0.12);
+                        noteOsc.frequency.setValueAtTime(freq, start);
+                        noteGain.gain.setValueAtTime(0.25, start);
+                        noteGain.gain.exponentialRampToValueAtTime(0.01, start + 0.25);
+                        noteOsc.start(start);
+                        noteOsc.stop(start + 0.25);
+                    });
+                }
+            } catch(e) {
+                console.log("Audio FX error:", e);
+            }
+        }
+
+        function toggleAudioFX() {
+            state.soundEnabled = !state.soundEnabled;
+            const icon = document.getElementById('sound-icon');
+            if (state.soundEnabled) {
+                icon.className = "fa-solid fa-volume-high";
+                playSound('click');
+            } else {
+                icon.className = "fa-solid fa-volume-xmark text-rose-800";
+            }
+        }
+
+        let currentQuranAudio = null;
+
+        function playArabicSpeech(text, audioUrl) {
+            playSound('click');
+
+            if (currentQuranAudio) {
+                currentQuranAudio.pause();
+                currentQuranAudio.currentTime = 0;
+            }
+
+            if (audioUrl) {
+                currentQuranAudio = new Audio(audioUrl);
+                currentQuranAudio.play().then(() => {
+                    console.log("Audio playing");
+                }).catch(err => {
+                    console.warn("Falling back to speech synthesis:", err);
+                    speakWithTTS(text);
+                });
+            } else {
+                speakWithTTS(text);
+            }
+        }
+
+        function speakWithTTS(text) {
+            if ('speechSynthesis' in window) {
+                try {
+                    window.speechSynthesis.cancel();
+                    window.speechSynthesis.resume();
+
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'ar-SA';
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1.0;
+
+                    const voices = window.speechSynthesis.getVoices();
+                    const arVoice = voices.find(v => v.lang && v.lang.toLowerCase().includes('ar'));
+                    if (arVoice) {
+                        utterance.voice = arVoice;
+                    }
+
+                    window.speechSynthesis.speak(utterance);
+                } catch(err) {
+                    console.log("TTS error:", err);
+                }
+            }
+        }
+
+        /* ==========================================================================
+           NAVIGATION ROUTER
+           ========================================================================== */
+        function navTo(pageId) {
+            playSound('click');
+            
+            if (currentQuranAudio) {
+                currentQuranAudio.pause();
+                currentQuranAudio.currentTime = 0;
+            }
+
+            const pages = ['home', 'academy', 'learn', 'activities', 'quiz', 'rewards'];
+            pages.forEach(p => {
+                const el = document.getElementById(`page-${p}`);
+                if (el) el.classList.add('hidden');
+                if (el) el.classList.remove('flex');
+            });
+
+            const target = document.getElementById(`page-${pageId}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('flex');
+            }
+
+            if (pageId === 'quiz') {
+                initQuiz();
+            } else if (pageId === 'learn') {
+                updateVerseDisplay();
+            } else if (pageId === 'home') {
+                document.getElementById('display-student-name').innerText = state.studentName || "Penjelajah Barangan";
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function addStars(num) {
+            state.stars += num;
+            updateHeaderStars();
+            saveStateToLocal();
+        }
+
+        function updateHeaderStars() {
+            document.getElementById('global-stars').innerText = state.stars;
+        }
+
+        /* ==========================================================================
+           STAGE 1: AKADEMI PENJELAJAH LOGIC
+           ========================================================================== */
+        function saveProfile(e) {
+            e.preventDefault();
+            playSound('correct');
+            
+            state.studentName = document.getElementById('input-name').value.trim();
+            state.studentClass = document.getElementById('input-class').value.trim();
+            state.parentEmail = document.getElementById('input-email').value.trim();
+            
+            addStars(5);
+            saveStateToLocal();
+
+            navTo('learn');
+        }
+
+        /* ==========================================================================
+           STAGE 2: BELAJAR 6 AYAT LOGIC
+           ========================================================================== */
+        function updateVerseDisplay() {
+            const verse = SURAH_DATA[state.currentVerseIndex];
+            
+            document.getElementById('current-verse-num').innerText = verse.number;
+            document.getElementById('verse-badge-counter').innerText = `AYAT ${verse.number} / 6`;
+            document.getElementById('verse-arabic').innerText = verse.arabic;
+            document.getElementById('verse-rumi').innerText = verse.rumi;
+            document.getElementById('verse-meaning').innerText = verse.meaning;
+
+            state.learnedVerses[state.currentVerseIndex] = true;
+            saveStateToLocal();
+
+            document.getElementById('btn-prev-verse').style.opacity = (state.currentVerseIndex === 0) ? "0.5" : "1";
+            
+            const nextBtn = document.getElementById('btn-next-verse');
+            if (state.currentVerseIndex === 5) {
+                nextBtn.innerHTML = `DUNIA AKTIVITI <i class="fa-solid fa-gamepad"></i>`;
+                nextBtn.className = "btn-game-purple px-8 py-5 rounded-2xl text-xl sm:text-2xl font-black text-white flex items-center gap-2";
+            } else {
+                nextBtn.innerHTML = `SETERUSNYA <i class="fa-solid fa-arrow-right"></i>`;
+                nextBtn.className = "btn-game-green px-8 py-5 rounded-2xl text-xl sm:text-2xl font-black text-white flex items-center gap-2";
+            }
+        }
+
+        function playCurrentVerseAudio() {
+            const verse = SURAH_DATA[state.currentVerseIndex];
+            playArabicSpeech(verse.arabic, verse.audio);
+        }
+
+        function repeatCurrentVerseAudio() {
+            playCurrentVerseAudio();
+        }
+
+        function prevVerse() {
+            if (currentQuranAudio) { currentQuranAudio.pause(); }
+            if (state.currentVerseIndex > 0) {
+                state.currentVerseIndex--;
+                updateVerseDisplay();
+                playSound('click');
+            }
+        }
+
+        function nextVerse() {
+            if (currentQuranAudio) { currentQuranAudio.pause(); }
+            if (state.currentVerseIndex < 5) {
+                state.currentVerseIndex++;
+                updateVerseDisplay();
+                playSound('click');
+            } else {
+                addStars(10);
+                navTo('activities');
+            }
+        }
+
+        /* ==========================================================================
+           STAGE 3: DUNIA AKTIVITI (6 MINIGAMES)
+           ========================================================================== */
+        function startActivity(actId) {
+            playSound('click');
+            document.getElementById('activity-selector-grid').classList.add('hidden');
+            const gameContainer = document.getElementById('minigame-container');
+            gameContainer.classList.remove('hidden');
+            gameContainer.classList.add('flex');
+
+            const titleEl = document.getElementById('minigame-title');
+            const playArea = document.getElementById('minigame-play-area');
+
+            if (actId === 1) {
+                titleEl.innerText = "🎧 1. DENGAR & KENALI";
+                loadMinigame1(playArea);
+            } else if (actId === 2) {
+                titleEl.innerText = "🧩 2. SUSUN AYAT";
+                loadMinigame2(playArea);
+            } else if (actId === 3) {
+                titleEl.innerText = "🔎 3. CARI PADANAN";
+                loadMinigame3(playArea);
+            } else if (actId === 4) {
+                titleEl.innerText = "💡 4. PILIH MAKSUD";
+                loadMinigame4(playArea);
+            } else if (actId === 5) {
+                titleEl.innerText = "⭐ 5. CABARAN INGATAN";
+                loadMinigame5(playArea);
+            } else if (actId === 6) {
+                titleEl.innerText = "🎯 6. KENALI AYAT BETUL";
+                loadMinigame6(playArea);
+            }
+        }
+
+        function closeMinigame() {
+            playSound('click');
+            document.getElementById('minigame-container').classList.add('hidden');
+            document.getElementById('activity-selector-grid').classList.remove('hidden');
+        }
+
+        // --- MINIGAME 1: Dengar & Kenali ---
+        function loadMinigame1(container) {
+            const randomVerse = SURAH_DATA[Math.floor(Math.random() * SURAH_DATA.length)];
+            let options = [...SURAH_DATA].sort(() => 0.5 - Math.random()).slice(0, 3);
+            if (!options.includes(randomVerse)) options[0] = randomVerse;
+            options.sort(() => 0.5 - Math.random());
+
+            container.innerHTML = `
+                <div class="text-center space-y-6 w-full max-w-xl">
+                    <p class="text-2xl sm:text-3xl font-black text-slate-900">Tekan butang di bawah untuk mendengar audio, kemudian pilih ayat yang betul!</p>
+                    <button onclick="playArabicSpeech('${randomVerse.arabic.replace(/'/g, "\\'")}', '${randomVerse.audio}')" class="btn-game-yellow px-8 py-5 rounded-3xl text-2xl sm:text-3xl font-black text-slate-900 animate-pulse">
+                        <i class="fa-solid fa-volume-high mr-2"></i> TEKAN UNTUK DENGAR
+                    </button>
+                    <div class="grid grid-cols-1 gap-4 pt-2">
+                        ${options.map(opt => `
+                            <button onclick="checkMinigame1Answer(${opt.number === randomVerse.number})" class="btn-game-blue p-5 rounded-2xl text-3xl sm:text-4xl font-arabic font-bold text-white">
+                                ${opt.arabic}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkMinigame1Answer(isCorrect) {
+            if (isCorrect) {
+                playSound('correct');
+                addStars(5);
+                alert("SYABAS! Jawapan anda TEPAT! 🎉 (+5 Bintang)");
+                closeMinigame();
+            } else {
+                playSound('wrong');
+                alert("SILA CUBA LAGI! Dengar dengan teliti sekali lagi ya. 😊");
+            }
+        }
+
+        // --- MINIGAME 2: Susun Ayat ---
+        let mg2Selected = [];
+        function loadMinigame2(container) {
+            mg2Selected = [];
+            let shuffled = [...SURAH_DATA].sort(() => 0.5 - Math.random());
+            
+            container.innerHTML = `
+                <div class="w-full max-w-2xl text-center space-y-5">
+                    <p class="text-2xl sm:text-3xl font-black text-slate-900">Tekan ayat mengikut susunan Ayat 1 hingga Ayat 6!</p>
+                    <div id="mg2-slots" class="min-h-[80px] bg-amber-100 border-4 border-dashed border-amber-500 rounded-3xl p-4 flex flex-wrap gap-2 justify-center items-center shadow-inner">
+                        <span class="text-slate-400 font-bold text-xl italic">Ayat terpilih akan muncul di sini...</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        ${shuffled.map(v => `
+                            <button id="mg2-btn-${v.number}" onclick="clickMg2Item(${v.number}, '${v.arabic.replace(/'/g, "\\'")}')" class="btn-game-green p-4 sm:p-5 rounded-2xl text-2xl sm:text-3xl font-arabic font-bold text-white">
+                                ${v.arabic}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <button onclick="resetMg2()" class="text-rose-600 font-black text-xl underline mt-3">
+                        Reset Susunan
+                    </button>
+                </div>
+            `;
+        }
+
+        function clickMg2Item(num, arabic) {
+            playSound('click');
+            const expectedNext = mg2Selected.length + 1;
+            if (num === expectedNext) {
+                mg2Selected.push(num);
+                document.getElementById(`mg2-btn-${num}`).disabled = true;
+                document.getElementById(`mg2-btn-${num}`).style.opacity = "0.3";
+                
+                const slots = document.getElementById('mg2-slots');
+                if (mg2Selected.length === 1) slots.innerHTML = "";
+                slots.innerHTML += `<span class="bg-emerald-600 text-white font-arabic font-bold text-2xl px-4 py-2 rounded-2xl border-2 border-slate-900 shadow">${num}. ${arabic}</span>`;
+
+                if (mg2Selected.length === 6) {
+                    playSound('fanfare');
+                    addStars(10);
+                    alert("HEBAT! Anda telah menyusun 6 ayat dengan sempurna! 🎉 (+10 Bintang)");
+                    closeMinigame();
+                }
+            } else {
+                playSound('wrong');
+                alert(`UPS! Sila pilih Ayat ${expectedNext} terlebih dahulu!`);
+            }
+        }
+
+        function resetMg2() {
+            const playArea = document.getElementById('minigame-play-area');
+            loadMinigame2(playArea);
+        }
+
+        // --- MINIGAME 3: Cari Padanan (Interactive 2-Column Tap Matching) ---
+        let mg3State = {
+            selectedArabic: null,
+            selectedMeaning: null,
+            matchedPairs: [],
+            items: []
+        };
+
+        function loadMinigame3(container) {
+            mg3State = { selectedArabic: null, selectedMeaning: null, matchedPairs: [], items: [] };
+            
+            // Pick 3 random distinct verses
+            const selectedVerses = [...SURAH_DATA].sort(() => 0.5 - Math.random()).slice(0, 3);
+            const arabicList = [...selectedVerses].sort(() => 0.5 - Math.random());
+            const meaningList = [...selectedVerses].sort(() => 0.5 - Math.random());
+
+            mg3State.items = selectedVerses;
+
+            container.innerHTML = `
+                <div class="w-full max-w-3xl text-center space-y-6">
+                    <div class="bg-purple-100 border-4 border-purple-500 rounded-2xl p-4">
+                        <p class="text-xl sm:text-2xl font-black text-purple-950">
+                            👈 Sentuh 1 Ayat Arab di sebelah kiri, kemudian sentuh maksudnya di sebelah kanan! 👉
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-900">
+                        <!-- Left Column: Arabic Verses -->
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-purple-900 uppercase tracking-wider bg-purple-200 py-2 rounded-xl border-2 border-slate-900">
+                                📖 AYAT ARAB
+                            </h4>
+                            <div class="space-y-3">
+                                ${arabicList.map(item => `
+                                    <button id="mg3-ar-${item.number}" onclick="selectMg3Arabic(${item.number})" class="w-full p-4 rounded-2xl border-4 border-slate-900 bg-white hover:bg-purple-50 font-arabic text-3xl font-bold text-slate-900 shadow transition-all text-center">
+                                        ${item.arabic}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Right Column: BM Meanings -->
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-indigo-900 uppercase tracking-wider bg-indigo-200 py-2 rounded-xl border-2 border-slate-900">
+                                💡 MAKSUD (BM)
+                            </h4>
+                            <div class="space-y-3">
+                                ${meaningList.map(item => `
+                                    <button id="mg3-bm-${item.number}" onclick="selectMg3Meaning(${item.number})" class="w-full p-4 rounded-2xl border-4 border-slate-900 bg-white hover:bg-indigo-50 text-lg sm:text-xl font-black text-slate-800 shadow transition-all text-center">
+                                        ${item.meaning}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mg3-feedback" class="text-xl font-black text-purple-900 min-h-[30px]"></div>
+                </div>
+            `;
+        }
+
+        function selectMg3Arabic(num) {
+            if (mg3State.matchedPairs.includes(num)) return;
+            playSound('click');
+
+            // Reset previous highlight
+            if (mg3State.selectedArabic) {
+                const prev = document.getElementById(`mg3-ar-${mg3State.selectedArabic}`);
+                if (prev && !mg3State.matchedPairs.includes(mg3State.selectedArabic)) {
+                    prev.className = "w-full p-4 rounded-2xl border-4 border-slate-900 bg-white font-arabic text-3xl font-bold text-slate-900 shadow transition-all text-center";
+                }
+            }
+
+            mg3State.selectedArabic = num;
+            const btn = document.getElementById(`mg3-ar-${num}`);
+            btn.className = "w-full p-4 rounded-2xl border-5 border-amber-500 bg-amber-200 font-arabic text-3xl font-bold text-slate-900 shadow-lg scale-102 transition-all text-center ring-4 ring-amber-300";
+
+            checkMg3Pair();
+        }
+
+        function selectMg3Meaning(num) {
+            if (mg3State.matchedPairs.includes(num)) return;
+            playSound('click');
+
+            // Reset previous highlight
+            if (mg3State.selectedMeaning) {
+                const prev = document.getElementById(`mg3-bm-${mg3State.selectedMeaning}`);
+                if (prev && !mg3State.matchedPairs.includes(mg3State.selectedMeaning)) {
+                    prev.className = "w-full p-4 rounded-2xl border-4 border-slate-900 bg-white text-lg sm:text-xl font-black text-slate-800 shadow transition-all text-center";
+                }
+            }
+
+            mg3State.selectedMeaning = num;
+            const btn = document.getElementById(`mg3-bm-${num}`);
+            btn.className = "w-full p-4 rounded-2xl border-5 border-sky-500 bg-sky-200 text-lg sm:text-xl font-black text-slate-900 shadow-lg scale-102 transition-all text-center ring-4 ring-sky-300";
+
+            checkMg3Pair();
+        }
+
+        function checkMg3Pair() {
+            if (mg3State.selectedArabic !== null && mg3State.selectedMeaning !== null) {
+                const feedback = document.getElementById('mg3-feedback');
+                
+                if (mg3State.selectedArabic === mg3State.selectedMeaning) {
+                    // Correct Match
+                    playSound('correct');
+                    const num = mg3State.selectedArabic;
+                    mg3State.matchedPairs.push(num);
+
+                    const arBtn = document.getElementById(`mg3-ar-${num}`);
+                    const bmBtn = document.getElementById(`mg3-bm-${num}`);
+
+                    arBtn.className = "w-full p-4 rounded-2xl border-4 border-emerald-600 bg-emerald-400 text-white font-arabic text-3xl font-bold shadow opacity-90 text-center";
+                    bmBtn.className = "w-full p-4 rounded-2xl border-4 border-emerald-600 bg-emerald-400 text-white text-lg sm:text-xl font-black shadow opacity-90 text-center";
+                    
+                    arBtn.innerHTML += ` <i class="fa-solid fa-circle-check text-white text-2xl ml-2"></i>`;
+                    bmBtn.innerHTML += ` <i class="fa-solid fa-circle-check text-white text-2xl ml-2"></i>`;
+
+                    feedback.innerHTML = `<span class="text-emerald-600">🎉 Syabas! Padanan Ayat ${num} tepat!</span>`;
+
+                    mg3State.selectedArabic = null;
+                    mg3State.selectedMeaning = null;
+
+                    if (mg3State.matchedPairs.length === 3) {
+                        playSound('fanfare');
+                        addStars(10);
+                        setTimeout(() => {
+                            alert("TAHNIAH! Anda berjaya padankan kesemua 3 ayat dengan tepat! 🎉 (+10 Bintang)");
+                            closeMinigame();
+                        }, 500);
+                    }
+                } else {
+                    // Wrong Match
+                    playSound('wrong');
+                    feedback.innerHTML = `<span class="text-rose-600">❌ Padanan belum tepat. Sila cuba lagi!</span>`;
+                    
+                    setTimeout(() => {
+                        if (mg3State.selectedArabic && !mg3State.matchedPairs.includes(mg3State.selectedArabic)) {
+                            document.getElementById(`mg3-ar-${mg3State.selectedArabic}`).className = "w-full p-4 rounded-2xl border-4 border-slate-900 bg-white font-arabic text-3xl font-bold text-slate-900 shadow transition-all text-center";
+                        }
+                        if (mg3State.selectedMeaning && !mg3State.matchedPairs.includes(mg3State.selectedMeaning)) {
+                            document.getElementById(`mg3-bm-${mg3State.selectedMeaning}`).className = "w-full p-4 rounded-2xl border-4 border-slate-900 bg-white text-lg sm:text-xl font-black text-slate-800 shadow transition-all text-center";
+                        }
+                        mg3State.selectedArabic = null;
+                        mg3State.selectedMeaning = null;
+                        feedback.innerHTML = "";
+                    }, 1000);
+                }
+            }
+        }
+
+        // --- MINIGAME 4: Isi Tempat Kosong (Fill in Missing Word Bubbles) ---
+        let mg4Round = 0;
+        const MG4_DATA = [
+            {
+                prefix: "قُلْ يَا أَيُّهَا ",
+                missing: "الْكَافِرُونَ",
+                suffix: "",
+                options: ["الْكَافِرُونَ", "الْمُؤْمِنُونَ", "الْمُسْلِمُونَ"]
+            },
+            {
+                prefix: "لَا أَعْبُدُ مَا ",
+                missing: "تَعْبُدُونَ",
+                suffix: "",
+                options: ["تَعْبُدُونَ", "يَعْبُدُونَ", "نَعْبُدُ"]
+            },
+            {
+                prefix: "لَكُمْ دِينُكُمْ وَلِيَ ",
+                missing: "دِينِ",
+                suffix: "",
+                options: ["دِينِ", "دِينُكُمْ", "عَابِدُونَ"]
+            }
+        ];
+
+        function loadMinigame4(container) {
+            mg4Round = 0;
+            renderMg4Round(container);
+        }
+
+        function renderMg4Round(container) {
+            const currentData = MG4_DATA[mg4Round];
+            const shuffledOptions = [...currentData.options].sort(() => 0.5 - Math.random());
+
+            container.innerHTML = `
+                <div class="w-full max-w-xl text-center space-y-6">
+                    <div class="flex items-center justify-between bg-amber-200 border-3 border-amber-600 rounded-2xl px-5 py-2 font-black text-amber-950 text-xl">
+                        <span>🎈 PUSAT BELON PERKATAAN</span>
+                        <span>PUSINGAN ${mg4Round + 1} / 3</span>
+                    </div>
+
+                    <!-- Verse Frame with Blank -->
+                    <div class="bg-amber-50 border-5 border-slate-900 rounded-3xl p-6 sm:p-8 shadow-inner space-y-4">
+                        <p class="text-xl sm:text-2xl font-black text-slate-800">Lengkapkan ayat di bawah:</p>
+                        <div class="font-arabic text-3xl sm:text-5xl font-bold text-slate-900 flex flex-wrap items-center justify-center gap-3">
+                            <span>${currentData.prefix}</span>
+                            <span id="mg4-blank-box" class="inline-block min-w-[140px] px-4 py-2 border-4 border-dashed border-amber-600 bg-amber-200/80 rounded-2xl text-amber-900 animate-pulse text-center">
+                                [ ? ]
+                            </span>
+                            <span>${currentData.suffix}</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xl font-black text-slate-800">Tekan belon perkataan yang betul di bawah:</p>
+
+                    <!-- Word Bubbles Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        ${shuffledOptions.map((opt, idx) => `
+                            <button onclick="checkMg4Bubble('${opt.replace(/'/g, "\\'")}')" class="btn-game-yellow py-6 px-4 rounded-3xl text-3xl sm:text-4xl font-arabic font-bold text-slate-900 flex flex-col items-center justify-center gap-2 hover:scale-105">
+                                <span class="text-4xl">🎈</span>
+                                <span>${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkMg4Bubble(selectedWord) {
+            const currentData = MG4_DATA[mg4Round];
+            const blankBox = document.getElementById('mg4-blank-box');
+
+            if (selectedWord === currentData.missing) {
+                playSound('correct');
+                blankBox.innerText = selectedWord;
+                blankBox.className = "inline-block px-4 py-2 border-4 border-emerald-600 bg-emerald-400 text-white rounded-2xl text-center font-bold shadow scale-110 transition-all";
+
+                setTimeout(() => {
+                    mg4Round++;
+                    if (mg4Round < MG4_DATA.length) {
+                        renderMg4Round(document.getElementById('minigame-play-area'));
+                    } else {
+                        playSound('fanfare');
+                        addStars(10);
+                        alert("SYABAS! Anda berjaya melengkapkan kesemua 3 ayat Surah Al-Kafirun! 🎉 (+10 Bintang)");
+                        closeMinigame();
+                    }
+                }, 1200);
+            } else {
+                playSound('wrong');
+                blankBox.innerText = "❌ SALAH";
+                blankBox.className = "inline-block px-4 py-2 border-4 border-rose-600 bg-rose-300 text-rose-950 rounded-2xl text-center font-bold shadow";
+                setTimeout(() => {
+                    blankBox.innerText = "[ ? ]";
+                    blankBox.className = "inline-block min-w-[140px] px-4 py-2 border-4 border-dashed border-amber-600 bg-amber-200/80 rounded-2xl text-amber-900 animate-pulse text-center";
+                }, 1000);
+            }
+        }
+
+        // --- MINIGAME 5: Cabaran Ingatan 3D (8 Card Memory Flip) ---
+        let mg5Cards = [];
+        let mg5FlippedCards = [];
+        let mg5MatchedCount = 0;
+        let mg5Moves = 0;
+
+        function loadMinigame5(container) {
+            mg5FlippedCards = [];
+            mg5MatchedCount = 0;
+            mg5Moves = 0;
+
+            const basePairs = [
+                { id: 1, ar: "قُلْ يَا أَيُّهَا الْكَافِرُونَ", bm: "Wahai orang-orang kafir!" },
+                { id: 2, ar: "لَا أَعْبُدُ مَا تَعْبُدُونَ", bm: "Aku tidak menyembah..." },
+                { id: 3, ar: "وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ", bm: "Aku tidak pernah menyembah..." },
+                { id: 4, ar: "لَكُمْ دِينُكُمْ وَلِيَ دِينِ", bm: "Bagi kamu agama kamu..." }
+            ];
+
+            let deck = [];
+            basePairs.forEach(p => {
+                deck.push({ pairId: p.id, type: 'AR', content: p.ar });
+                deck.push({ pairId: p.id, type: 'BM', content: p.bm });
+            });
+
+            // Shuffle cards
+            mg5Cards = deck.sort(() => 0.5 - Math.random());
+
+            container.innerHTML = `
+                <div class="w-full max-w-2xl text-center space-y-5">
+                    <div class="flex items-center justify-between bg-rose-100 border-3 border-rose-500 rounded-2xl px-5 py-2 font-black text-rose-950 text-xl">
+                        <span>🎴 MEMORI 8 KAD (4 PASANGAN)</span>
+                        <span id="mg5-moves-text">PERCUBAAN: 0</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        ${mg5Cards.map((card, idx) => `
+                            <div id="mg5-card-${idx}" onclick="flip3DCard(${idx})" class="card-perspective h-36 cursor-pointer">
+                                <div class="card-inner">
+                                    <!-- Card Front (Hidden State) -->
+                                    <div class="card-front btn-game-blue flex flex-col items-center justify-center border-4 border-slate-900 rounded-2xl p-2 shadow-lg">
+                                        <span class="text-4xl">🌟</span>
+                                        <span class="text-white font-black text-sm mt-1">KAD ${idx + 1}</span>
+                                    </div>
+                                    <!-- Card Back (Flipped State) -->
+                                    <div class="card-back bg-amber-100 border-4 border-slate-900 rounded-2xl p-3 flex items-center justify-center text-center shadow-lg">
+                                        <span class="${card.type === 'AR' ? 'font-arabic text-2xl font-bold text-slate-900' : 'text-base font-black text-slate-900'}">
+                                            ${card.content}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function flip3DCard(idx) {
+            if (mg5FlippedCards.length >= 2) return;
+            
+            const cardEl = document.getElementById(`mg5-card-${idx}`);
+            if (cardEl.classList.contains('card-flipped') || cardEl.classList.contains('card-matched')) return;
+
+            playSound('click');
+            cardEl.classList.add('card-flipped');
+            mg5FlippedCards.push({ idx, card: mg5Cards[idx] });
+
+            if (mg5FlippedCards.length === 2) {
+                mg5Moves++;
+                document.getElementById('mg5-moves-text').innerText = `PERCUBAAN: ${mg5Moves}`;
+
+                const [first, second] = mg5FlippedCards;
+
+                if (first.card.pairId === second.card.pairId) {
+                    // Match found
+                    playSound('correct');
+                    mg5MatchedCount++;
+
+                    document.getElementById(`mg5-card-${first.idx}`).classList.add('card-matched');
+                    document.getElementById(`mg5-card-${second.idx}`).classList.add('card-matched');
+
+                    mg5FlippedCards = [];
+
+                    if (mg5MatchedCount === 4) {
+                        playSound('fanfare');
+                        addStars(10);
+                        setTimeout(() => {
+                            alert(`TAHNIAH! Anda berjaya memadankan kesemua 8 kad memori dalam ${mg5Moves} percubaan! 🎉 (+10 Bintang)`);
+                            closeMinigame();
+                        }, 600);
+                    }
+                } else {
+                    // No match
+                    playSound('wrong');
+                    setTimeout(() => {
+                        document.getElementById(`mg5-card-${first.idx}`).classList.remove('card-flipped');
+                        document.getElementById(`mg5-card-${second.idx}`).classList.remove('card-flipped');
+                        mg5FlippedCards = [];
+                    }, 1100);
+                }
+            }
+        }
+
+        // --- MINIGAME 6: Detektif Tajwid & Ejaan (Spot the Error True/False) ---
+        let mg6Round = 0;
+        const MG6_QUESTIONS = [
+            {
+                verse: "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+                isCorrect: true,
+                explanation: "Ayat ini BETUL sepenuhnya! Terdapat 6 ayat dalam Surah Al-Kafirun."
+            },
+            {
+                verse: "لَا أَعْبُدُ مَا تَعْبُدِينْ",
+                isCorrect: false,
+                explanation: "ADA KESILAPAN! Ejaan sebenar ialah 'تَعْبُدُونَ' (Ta'budun), bukannya 'تَعْبُدِينْ'."
+            },
+            {
+                verse: "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
+                isCorrect: true,
+                explanation: "Ayat ini BETUL! 'Lakum dinukum wa liya din' ialah ayat ke-6."
+            },
+            {
+                verse: "وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ",
+                isCorrect: true,
+                explanation: "Ayat ini BETUL! Ayat ini diulang pada Ayat 3 dan Ayat 5."
+            }
+        ];
+
+        function loadMinigame6(container) {
+            mg6Round = 0;
+            renderMg6Round(container);
+        }
+
+        function renderMg6Round(container) {
+            const currentData = MG6_QUESTIONS[mg6Round];
+
+            container.innerHTML = `
+                <div class="w-full max-w-xl text-center space-y-6">
+                    <div class="flex items-center justify-between bg-teal-100 border-3 border-teal-600 rounded-2xl px-5 py-2 font-black text-teal-950 text-xl">
+                        <span>🕵️ MOD DETEKTIF TAJWID</span>
+                        <span>SOALAN ${mg6Round + 1} / 4</span>
+                    </div>
+
+                    <!-- Detective Inspection Card -->
+                    <div class="bg-emerald-50 border-5 border-slate-900 rounded-3xl p-6 sm:p-8 shadow-inner space-y-4">
+                        <p class="text-xl sm:text-2xl font-black text-slate-800">
+                            Perhati dan teliti ejaan ayat Arab di bawah:
+                        </p>
+                        <div class="bg-white border-4 border-slate-900 rounded-2xl p-6">
+                            <p class="font-arabic text-4xl sm:text-5xl font-bold text-slate-900">
+                                ${currentData.verse}
+                            </p>
+                        </div>
+                        <p class="text-xl font-black text-emerald-900">
+                            Adakah ejaan ayat Arab di atas BETUL atau ADA KESILAPAN?
+                        </p>
+                    </div>
+
+                    <!-- True/False Buttons -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="answerMg6(true)" class="btn-game-green py-5 rounded-2xl text-2xl font-black text-white flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-check text-3xl"></i> BETUL ✅
+                        </button>
+                        <button onclick="answerMg6(false)" class="btn-game-orange py-5 rounded-2xl text-2xl font-black text-white flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-xmark text-3xl"></i> SALAH ❌
+                        </button>
+                    </div>
+
+                    <!-- Explanation Box -->
+                    <div id="mg6-exp-box" class="hidden bg-amber-200 border-4 border-amber-600 rounded-2xl p-4 text-left flex items-start gap-3 shadow">
+                        <span class="text-4xl">🦉</span>
+                        <div>
+                            <p class="font-black text-lg text-amber-950">Nota Detektif Hantu Bijak:</p>
+                            <p id="mg6-exp-text" class="font-bold text-slate-900 text-base sm:text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function answerMg6(userChoice) {
+            const currentData = MG6_QUESTIONS[mg6Round];
+            const expBox = document.getElementById('mg6-exp-box');
+            const expText = document.getElementById('mg6-exp-text');
+
+            expBox.classList.remove('hidden');
+            expText.innerText = currentData.explanation;
+
+            if (userChoice === currentData.isCorrect) {
+                playSound('correct');
+                setTimeout(() => {
+                    mg6Round++;
+                    if (mg6Round < MG6_QUESTIONS.length) {
+                        renderMg6Round(document.getElementById('minigame-play-area'));
+                    } else {
+                        playSound('fanfare');
+                        addStars(10);
+                        alert("HEBAT! Anda telah lulus Ujian Detektif Tajwid Surah Al-Kafirun! 🎉 (+10 Bintang)");
+                        closeMinigame();
+                    }
+                }, 2200);
+            } else {
+                playSound('wrong');
+                setTimeout(() => {
+                    renderMg6Round(document.getElementById('minigame-play-area'));
+                }, 2500);
+            }
+        }
+
+        /* ==========================================================================
+           STAGE 4: KUIZ 20 SOALAN LOGIC ENGINE
+           ========================================================================== */
+        function initQuiz() {
+            state.quizCurrentIndex = 0;
+            state.quizScore = 0;
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+            feedbackBox.classList.add('hidden');
+
+            const qData = QUIZ_QUESTIONS[state.quizCurrentIndex];
+            
+            document.getElementById('quiz-question-counter').innerText = `SOALAN ${state.quizCurrentIndex + 1} / 20`;
+            document.getElementById('quiz-question-text').innerText = qData.q;
+
+            const container = document.getElementById('quiz-options-container');
+            container.innerHTML = "";
+
+            qData.options.forEach((optText, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "btn-game-blue p-5 rounded-2xl text-xl sm:text-2xl font-black text-white text-left transition-all hover:scale-102 flex items-center";
+                btn.innerHTML = `<span class="bg-amber-400 text-slate-900 rounded-xl px-3 py-1 mr-3 text-2xl font-black border-2 border-slate-900">${String.fromCharCode(65 + optIdx)}</span> <span>${optText}</span>`;
+                btn.onclick = () => submitQuizAnswer(optIdx);
+                container.appendChild(btn);
+            });
+        }
+
+        function submitQuizAnswer(selectedIdx) {
+            const qData = QUIZ_QUESTIONS[state.quizCurrentIndex];
+            const isCorrect = (selectedIdx === qData.correct);
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+
+            const buttons = document.querySelectorAll('#quiz-options-container button');
+            buttons.forEach(b => b.disabled = true);
+
+            feedbackBox.classList.remove('hidden');
+
+            if (isCorrect) {
+                playSound('correct');
+                state.quizScore++;
+                buttons[selectedIdx].className = "btn-game-green p-5 rounded-2xl text-xl sm:text-2xl font-black text-white text-left flex items-center";
+                feedbackBox.className = "w-full p-5 rounded-2xl border-4 border-slate-900 bg-emerald-300 text-emerald-950 text-2xl sm:text-3xl font-black text-center shadow";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> TEPAT SEKALI! Syabas!`;
+            } else {
+                playSound('wrong');
+                buttons[selectedIdx].className = "btn-game-orange p-5 rounded-2xl text-xl sm:text-2xl font-black text-white text-left opacity-70 flex items-center";
+                buttons[qData.correct].className = "btn-game-green p-5 rounded-2xl text-xl sm:text-2xl font-black text-white text-left flex items-center";
+                feedbackBox.className = "w-full p-5 rounded-2xl border-4 border-slate-900 bg-rose-300 text-rose-950 text-2xl sm:text-3xl font-black text-center shadow";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> KURANG TEPAT! ${qData.hint}`;
+            }
+
+            setTimeout(() => {
+                state.quizCurrentIndex++;
+                if (state.quizCurrentIndex < QUIZ_QUESTIONS.length) {
+                    renderQuizQuestion();
+                } else {
+                    showRewardsScreen();
+                }
+            }, 2000);
+        }
+
+        /* ==========================================================================
+           STAGE 5: VICTORY REWARDS & PARENT EMAIL DISPATCH
+           ========================================================================== */
+        function showRewardsScreen() {
+            playSound('fanfare');
+            
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 150,
+                    spread: 80,
+                    origin: { y: 0.6 }
+                });
+            }
+
+            const total = QUIZ_QUESTIONS.length;
+            const percent = Math.round((state.quizScore / total) * 100);
+
+            document.getElementById('reward-student-greeting').innerText = `Hebat sekali, Penjelajah ${state.studentName}! Anda telah menamatkan 20 soalan kuiz!`;
+            document.getElementById('reward-score-percent').innerText = `${percent}%`;
+            document.getElementById('reward-correct-count').innerText = `${state.quizScore}/${total}`;
+
+            let badgeName = "PAHLAWAN";
+            if (percent < 50) badgeName = "PENGEMBARA";
+            else if (percent < 80) badgeName = "PENJELAJAH";
+            document.getElementById('reward-badge-name').innerText = badgeName;
+
+            addStars(state.quizScore * 2);
+
+            navTo('rewards');
+
+            dispatchParentEmailReport(percent);
+        }
+
+        function dispatchParentEmailReport(percent) {
+            const statusText = document.getElementById('email-status-text');
+            const targetEmail = state.parentEmail || "Tiada e-mel disediakan";
+
+            statusText.innerText = `Mengirimkan laporan keputusan (${percent}%) ke e-mel ibu bapa: ${targetEmail}...`;
+
+            setTimeout(() => {
+                statusText.innerHTML = `<span class="text-emerald-800 font-black"><i class="fa-solid fa-circle-check mr-1 text-emerald-600"></i> Laporan telah berjaya direkodkan & dikirim ke ${targetEmail}!</span>`;
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
